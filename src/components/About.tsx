@@ -1,5 +1,3 @@
-import React from "react";
-
 function Button({ children, onClick, className }: any) {
   return (
     <button onClick={onClick} className={className}>

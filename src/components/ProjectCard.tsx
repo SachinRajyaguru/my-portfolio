@@ -2,7 +2,6 @@ function ProjectCard({
   title,
   category,
   description,
-  image,
   ios_link,
   android_link,
 }: {
