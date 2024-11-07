@@ -86,6 +86,21 @@ function Portfolio() {
       android_link:
         "https://play.google.com/store/apps/details?id=com.care_it&hl=en_US&gl=US",
     },
+    {
+      title: "Connector",
+      category: "Business",
+      description: [
+        "Real-time connections: Based on location, events, profiles, and interests.",
+        "Push notifications: For relevant opportunities.",
+        "Search capability: Find connections based on specific criteria.",
+        "Genuine connections: Through shared interests and career goals.",
+        "Value Score: Identifies potential connection value, reducing spam.",
+      ],
+      image: "careit.jpg",
+      ios_link: "https://apps.apple.com/us/app/the-connector-app/id6477791197",
+      android_link:
+        "https://play.google.com/store/apps/details?id=com.connector.android",
+    },
   ];
 
   return (

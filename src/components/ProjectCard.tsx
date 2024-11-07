@@ -14,13 +14,13 @@ function ProjectCard({
 }) {
   return (
     <div className="text-left bg-gray-100 rounded-lg shadow-md overflow-hidden">
-      <div className="px-4 py-5 sm:p-6">
-        <h1 className="text-2xl font-medium leading-6 text-gray-900 mt-4 ">
+      <div className="px-4 py-5 sm:p-4">
+        <h1 className="text-2xl font-medium leading-6 text-gray-900 mt-4">
           {title}
           <p className="mt-1 text-sm text-gray-500">{category}</p>
         </h1>
         <dl className="mt-4 divide-y divide-gray-300">
-          <div className="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <div className="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-gray-900">
               Description
             </dt>

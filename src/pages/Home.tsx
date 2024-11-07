@@ -4,7 +4,7 @@ const Home = () => {
     "Expertise in both frontend and light backend development (Node.js & SQL) for comprehensive project handling.",
     "Strong focus on user experience (UX): I design apps that are intuitive, user-friendly, and deeply connect with your target audience.",
     "Cross-platform development: I build seamless apps that function flawlessly on both iOS and Android devices.",
-    "Known Language: English | Hindi | Gujarati",
+    "",
   ];
 
   return (
@@ -20,6 +20,31 @@ const Home = () => {
           </li>
         ))}
       </ul>
+      <table className="table-fixed border border-collapse border-slate-500">
+        <caption className="caption-top">
+          My personal details about in the table
+        </caption>
+        <thead>
+          <tr>
+            <th className="border border-slate-600">Details Title</th>
+            <th className="border border-slate-600">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Known Language</td>
+            <td>English | Hindi | Gujarati</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };
