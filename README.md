@@ -1,51 +1,74 @@
-# React + TypeScript + Vite
+Got it! Here's the **updated guide** to run a **React + TypeScript + Vite** project **by cloning it from a repository** instead of creating a new one.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## ✅ How to Run a React + TypeScript + Vite Project Locally (Cloning Method)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+### ✅ 1. **Clone the Repository**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+> Replace `your-username/your-repo-name` with the actual GitHub repo URL.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+---
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+### ✅ 2. **Install Dependencies**
+
+Using npm:
+
+```bash
+npm install
 ```
-# my-portfolio
+
+Or using yarn:
+
+```bash
+yarn
+```
+
+---
+
+### ✅ 3. **Run the Dev Server**
+
+```bash
+npm run dev
+```
+
+Or:
+
+```bash
+yarn dev
+```
+
+You’ll see output like:
+
+```
+VITE v5.x.x  ready in 300ms
+
+  ➜  Local:   http://localhost:5173/
+```
+
+---
+
+### ✅ 4. **Open in Browser**
+
+Go to [http://localhost:5173](http://localhost:5173) to see your app.
+
+---
+
+### ✅ 5. **Project Scripts**
+
+```bash
+npm run dev       # Start local dev server
+npm run build     # Create production build
+npm run preview   # Preview built site
+```
+
+---
+
+Let me know if you want help setting up GitHub repo structure or adding CI/CD, routing, or dark mode!
