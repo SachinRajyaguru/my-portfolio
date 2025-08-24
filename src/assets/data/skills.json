@@ -1,0 +1,37 @@
+[
+  {
+    "key": "problem_solving_skills",
+    "title": "Problem-Solving Skills",
+    "data": ["Analytical Thinking", "Debugging", "Algorithmic Thinking", "System Design", "Root Cause Analysis", "Critical Thinking", "Optimization"]
+  },
+  {
+    "key": "infrastructure_tools",
+    "title": "Infrastructure & Automation Tools",
+    "data": ["Microsoft Azure", "Docker", "Kubernetes", "Jenkins", "GitLab CI/CD", "GitHub Actions"]
+  },
+  {
+    "key": "office_tools",
+    "title": "Office & Productivity Suites",
+    "data": ["Microsoft 365", "Google Workspace"]
+  },
+  {
+    "key": "collaboration",
+    "title": "Communication & Collaboration",
+    "data": ["Microsoft Teams", "Slack", "Zoom", "Outlook", "Gmail"]
+  },
+  {
+    "key": "project_management",
+    "title": "Project & Task Management",
+    "data": ["Asana", "Trello", "Jira"]
+  },
+  {
+    "key": "note_taking",
+    "title": "Note-Taking & Knowledge Management",
+    "data": ["Notion", "OneNote"]
+  },
+  {
+    "key": "design_tools",
+    "title": "Design & Diagramming",
+    "data": ["Canva", "Figma"]
+  }
+]

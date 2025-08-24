@@ -1,0 +1,64 @@
+[
+  {
+    "key": "sdlc",
+    "title": "Software Development Lifecycle",
+    "data": [
+      {
+        "key": "planning",
+        "title": "1. Planning & Requirement Analysis",
+        "data": ["Jira", "Trello", "Asana"]
+      },
+      {
+        "key": "requirements",
+        "title": "2. Defining Requirements",
+        "data": ["Notion", "Google Docs", "Microsoft Word"]
+      },
+      {
+        "key": "design",
+        "title": "3. Design",
+        "data": ["Figma"]
+      },
+      {
+        "key": "development",
+        "title": "4. Development",
+        "data": [
+          {
+            "key": "frontend",
+            "title": "Frontend Development",
+            "data": ["React Native", "React.js", "TypeScript", "Redux", "TanStack Query", "React Navigation", "HTML5", "CSS3"]
+          },
+          {
+            "key": "backend_api",
+            "title": "Backend & API Integration",
+            "data": ["RESTful APIs", "GraphQL APIs", "WebSocket APIs", "Node.js", "Firebase (FCM, Analytics, Crashlytics)", "Axios", "Fetch API", "Swagger"]
+          },
+          {
+            "key": "cloud_devops",
+            "title": "Cloud & DevOps (basic exposure)",
+            "data": ["Azure", "GitHub Actions", "Azure DevOps", "CI/CD pipelines", "Docker", "Kubernetes", "Jenkins"]
+          },
+          {
+            "key": "databases",
+            "title": "Database Technologies",
+            "data": ["MongoDB", "MySQL", "PostgreSQL", "SQLite", "Oracle Database", "Microsoft SQL Server"]
+          }
+        ]
+      },
+      {
+        "key": "testing",
+        "title": "5. Testing",
+        "data": ["Selenium", "Sauce Labs", "Lighthouse", "Detox", "Appium", "Jest", "React Native Testing Library", "Firebase Test Lab", "BrowserStack", "OWASP ZAP", "SonarQube", "Snyk", "Postman"]
+      },
+      {
+        "key": "deployment",
+        "title": "6. Deployment",
+        "data": ["Fastlane", "Xcode", "Android Studio", "App Store Connect", "Google Play Console", "Vercel", "Netlify", "Firebase Hosting"]
+      },
+      {
+        "key": "maintenance",
+        "title": "7. Maintenance",
+        "data": ["Sentry", "Firebase Crashlytics", "Google Analytics", "Firebase Analytics", "Amplitude", "GitHub Issues", "Jira", "LogRocket", "New Relic"]
+      }
+    ]
+  }
+]
