@@ -1,42 +1,116 @@
 #root {
-  max-width: 1280px;
+  min-height: 100vh;        /* full viewport height */
+  display: flex;            /* flex container */
+  flex-direction: column;   /* stack content vertically */
+  align-items: center;      /* center horizontally */
+  justify-content: flex-start; /* start content at top */
+  padding: 1rem;            /* breathing space */
+  background-color: #f9fafb; /* subtle background */
+  color: #111827;           /* readable text color */
+  max-width: 100%;
+}
+
+nav {
+  width: fit-content;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+  background: hsl(0 0% 0% / 0.8);
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+  padding: 8px;
+  border-radius: 8px;
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+  isolation: isolate;
+
+  anchor-name: --hovered-link;
+
+  li:hover {
+    anchor-name: --hovered-link;
   }
-  to {
-    transform: rotate(360deg);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(anchor(bottom) - 8px);
+    left: calc(anchor(left) + 1rem);
+    right: calc(anchor(right) + 1rem);
+    bottom: calc(anchor(bottom) + 5px);
+    border-radius: 10px;
+
+    position-anchor: --hovered-link;
+
+    transition: 500ms
+      linear(
+        0,
+        0.029 1.6%,
+        0.123 3.5%,
+        0.651 10.6%,
+        0.862 14.1%,
+        1.002 17.7%,
+        1.046 19.6%,
+        1.074 21.6%,
+        1.087 23.9%,
+        1.086 26.6%,
+        1.014 38.5%,
+        0.994 46.3%,
+        1
+      );
+  }
+
+  &::before {
+    z-index: -1;
+    background: rgb(0 0 0 / 0.2);
+  }
+
+  &::after {
+    z-index: -2;
+    background-color: white;
+  }
+
+  &:has(a:hover)::before,
+  &:has(a:hover)::after {
+    top: anchor(top);
+    left: anchor(left);
+    right: anchor(right);
+    bottom: anchor(bottom);
+
+    @supports (corner-shape: squircle) {
+      corner-shape: squircle;
+      border-radius: 50%;
+    }
+  }
+
+  &:has(li:first-of-type a:hover)::before,
+  &:has(li:first-of-type a:hover)::after {
+    @supports (corner-shape: squircle) {
+      border-radius: 32px 100% 100% 32px;
+    }
+  }
+
+  &:has(li:last-of-type a:hover)::before,
+  &:has(li:last-of-type a:hover)::after {
+    @supports (corner-shape: squircle) {
+      border-radius: 100% 32px 32px 100%;
+    }
+  }
+
+  @supports (corner-shape: squircle) {
+    border-radius: 24px;
+    corner-shape: squircle;
+  }
+
+  > ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+  }
+
+  a {
+    display: block;
+    padding: 1rem;
+    font-size: 1.125rem;
+    text-decoration: none;
+    color: white;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
