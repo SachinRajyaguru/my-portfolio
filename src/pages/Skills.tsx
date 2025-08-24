@@ -110,7 +110,7 @@ const Skills = () => {
 
       <Grid container spacing={2}>
         {sections.map((section) => (
-          <Grid item size={12} xs={12} sm={6} md={4} key={section.key}>
+          <Grid size={{ xs: 12, sm: 6, md: 4 }} key={section.key}>
             <SkillsCard section={section} isTools={true} />
           </Grid>
         ))}
