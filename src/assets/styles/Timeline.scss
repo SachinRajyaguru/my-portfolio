@@ -1,0 +1,21 @@
+.vertical-timeline-element {
+  color: #0d1116; // light mode default
+
+  li,
+  p,
+  h3,
+  h4,
+  span {
+    color: inherit; // inherit parent color
+  }
+}
+
+.dark-mode {
+  .vertical-timeline-element-content {
+    background: #1e1e1e !important;
+    color: #f5f5f5 !important;
+  }
+  .vertical-timeline-element-content-arrow {
+    border-right: 7px solid #1e1e1e !important;
+  }
+}

@@ -1,15 +1,46 @@
-import { Outlet } from "react-router-dom";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar"
+import { useEffect, useState } from "react";
+import {
+  Contact,
+  Expertise,
+  Footer,
+  Main,
+  Navigation,
+  Project,
+  Timeline,
+} from "./components";
+import "./index.scss";
 
-export default function App() {
+function App() {
+  const [mode, setMode] = useState<string>("dark");
+
+  const handleModeChange = () => {
+    if (mode === "dark") {
+      setMode("light");
+    } else {
+      setMode("dark");
+    }
+  };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-grow">
-        <Outlet />
-      </main>
+    <div
+      className={`main-container ${
+        mode === "dark" ? "dark-mode" : "light-mode"
+      }`}>
+      <Navigation parentToChild={{ mode }} modeChange={handleModeChange} />
+
+      <Main />
+      <Expertise />
+      <Timeline />
+      <Project />
+      <Contact />
+
       <Footer />
     </div>
   );
 }
+
+export default App;
