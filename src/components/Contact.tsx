@@ -7,7 +7,11 @@ import emailjs from "@emailjs/browser";
 
 import "../assets/styles/Contact.scss";
 
-function Contact() {
+interface ContactProps {
+  mode: string;
+}
+
+function Contact({ mode }: ContactProps) {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
@@ -18,27 +22,79 @@ function Contact() {
   const [messageError, setMessageError] = useState<boolean>(false);
   const [titleError, setTitleError] = useState<boolean>(false);
 
-  const form = useRef();
+  const form = useRef<HTMLFormElement>(null);
+
+  const isDarkMode = mode === "dark";
+
+  // Dynamic styles for TextField based on theme
+  const textFieldStyles = {
+    "& .MuiOutlinedInput-root": {
+      backgroundColor: isDarkMode ? "#fff" : "#fff",
+      "& fieldset": {
+        borderColor: isDarkMode ? "#5000ca" : "#5000ca",
+      },
+      "&:hover fieldset": {
+        borderColor: isDarkMode ? "#7c3aed" : "#7c3aed",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#5000ca",
+      },
+    },
+    "& .MuiInputBase-input": {
+      color: "#0d1116",
+    },
+    // Floating label when focused or has value (shrunk state)
+    "& .MuiInputLabel-shrink": {
+      color: isDarkMode ? "#fff" : "#000",
+      fontWeight: 600,
+      backgroundColor: isDarkMode ? "#0d1116" : "#fff",
+      padding: "0 8px",
+      borderRadius: "4px",
+    },
+    // Label in default state (inside input)
+    "& .MuiInputLabel-root": {
+      color: "rgba(0, 0, 0, 0.6)",
+    },
+    // Focused label color
+    "& .MuiInputLabel-root.Mui-focused": {
+      color: isDarkMode ? "#fff" : "#000",
+    },
+    // Error state
+    "& .MuiInputLabel-root.Mui-error": {
+      color: "#d32f2f",
+    },
+    // Helper text
+    "& .MuiFormHelperText-root": {
+      color: isDarkMode ? "#ccc" : "#666",
+    },
+    "& .MuiFormHelperText-root.Mui-error": {
+      color: "#d32f2f",
+    },
+  };
 
   const sendEmail = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    // Validation
-    const hasError = !name || !email || !message || !titleError;
-    setNameError(!name);
-    setEmailError(!email);
-    setMessageError(!message);
-    setTitleError(!titleError);
+    const hasNameError = !name.trim();
+    const hasEmailError = !email.trim();
+    const hasMessageError = !message.trim();
+    const hasTitleError = !title.trim();
 
-    if (hasError) return;
+    setNameError(hasNameError);
+    setEmailError(hasEmailError);
+    setMessageError(hasMessageError);
+    setTitleError(hasTitleError);
 
-    // Prepare data for EmailJS
+    if (hasNameError || hasEmailError || hasMessageError || hasTitleError) {
+      return;
+    }
+
     const templateParams = {
-      title: title,
+      title,
       name,
-      email: email, // allows you to reply directly
+      email,
       message,
-      time: new Date().toLocaleString(), // matches {{time}} in template
+      time: new Date().toLocaleString(),
     };
 
     emailjs
@@ -80,70 +136,81 @@ function Contact() {
             component="form"
             noValidate
             autoComplete="off"
-            className="contact-form">
-            <div className="form-flex">
-              <TextField
-                required
-                id="title-input"
-                label="Subject"
-                placeholder="What’s this about?"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                error={titleError}
-                helperText={titleError ? "Please enter title" : ""}
-              />
-            </div>
-            <div className="form-flex">
-              <TextField
-                required
-                id="email-phone-input"
-                label="Email / Phone"
-                placeholder="How can I reach you?"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-                error={emailError}
-                helperText={
-                  emailError ? "Please enter your email or phone number" : ""
-                }
-              />
-            </div>
-            <div className="form-flex">
-              <TextField
-                required
-                id="name-input"
-                label="Your Name"
-                placeholder="What's your name?"
-                value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-                error={nameError}
-                helperText={nameError ? "Please enter your name" : ""}
-              />
-            </div>
+            className="contact-form"
+          >
             <TextField
+              fullWidth
+              required
+              id="title-input"
+              label="Subject"
+              placeholder="What's this about?"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              error={titleError}
+              helperText={titleError ? "Please enter a subject" : ""}
+              margin="normal"
+              sx={textFieldStyles}
+            />
+            <TextField
+              fullWidth
+              required
+              id="email-phone-input"
+              label="Email / Phone"
+              placeholder="How can I reach you?"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              error={emailError}
+              helperText={
+                emailError ? "Please enter your email or phone number" : ""
+              }
+              margin="normal"
+              sx={textFieldStyles}
+            />
+            <TextField
+              fullWidth
+              required
+              id="name-input"
+              label="Your Name"
+              placeholder="What's your name?"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              error={nameError}
+              helperText={nameError ? "Please enter your name" : ""}
+              margin="normal"
+              sx={textFieldStyles}
+            />
+            <TextField
+              fullWidth
               required
               id="message-input"
               label="Message"
               placeholder="Send me any inquiries or questions"
               multiline
               rows={10}
-              className="body-form"
               value={message}
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
+              onChange={(e) => setMessage(e.target.value)}
               error={messageError}
-              helperText={messageError ? "Please enter the message" : ""}
+              helperText={messageError ? "Please enter a message" : ""}
+              margin="normal"
+              sx={textFieldStyles}
             />
-            <Button
-              variant="contained"
-              endIcon={<SendIcon />}
-              onClick={sendEmail}>
-              Send
-            </Button>
+            <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
+              <Button
+                variant="contained"
+                endIcon={<SendIcon />}
+                onClick={sendEmail}
+                // sx={{
+                //   backgroundColor: isDarkMode ? "#fff" : "#0d1116",
+                //   color: isDarkMode ? "#0d1116" : "#fff",
+                //   "&:hover": {
+                //     backgroundColor: "#5000ca",
+                //     color: "#fff",
+                //   },
+                // }}
+              >
+                Send
+              </Button>
+            </Box>
           </Box>
         </div>
       </div>

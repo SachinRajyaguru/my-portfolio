@@ -13,6 +13,7 @@ import "../assets/styles/Expertise.scss";
 const lebelFirst = [
   "React Native",
   "React.js",
+  "Next.js",
   "TypeScript",
   "Redux",
   "TanStack Query",
@@ -20,6 +21,7 @@ const lebelFirst = [
   "HTML5",
   "CSS3",
 ];
+
 const backend_api = [
   "RESTful APIs",
   "GraphQL APIs",
@@ -30,6 +32,7 @@ const backend_api = [
   "Fetch API",
   "Swagger",
 ];
+
 const databases = [
   "MongoDB",
   "MySQL",
@@ -38,6 +41,7 @@ const databases = [
   "Oracle Database",
   "Microsoft SQL Server",
 ];
+
 const labelsThird = [
   "AI",
   "Docker",
@@ -59,14 +63,16 @@ function Expertise() {
         <h1>Expertise</h1>
         <div className="skills-grid">
           <div className="skill">
-            <FontAwesomeIcon icon={faReact} size="3x" />
-            <FontAwesomeIcon icon={faNodeJs} size="3x" />
-            <h3>Mobile + Backend Engineer</h3>
+            <div className="skill-icons">
+              <FontAwesomeIcon icon={faReact} size="3x" />
+              <FontAwesomeIcon icon={faNodeJs} size="3x" />
+            </div>
+            <h3>Mobile + Full Stack Engineer</h3>
             <p>
-              I have built a diverse array of cross-platform mobile applications
-              from scratch using modern technologies such as React Native. I
-              have a strong proficiency in the SDLC process and frontend +
-              backend development.
+              I have built a diverse array of cross-platform mobile and web
+              applications from scratch using modern technologies such as React
+              Native and Next.js. I have a strong proficiency in the SDLC
+              process and frontend + backend development.
             </p>
             <div className="flex-chips">
               <span className="chip-title">Tech stack:</span>
@@ -77,7 +83,9 @@ function Expertise() {
           </div>
 
           <div className="skill">
-            <FontAwesomeIcon icon={faDocker} size="3x" />
+            <div className="skill-icons">
+              <FontAwesomeIcon icon={faDocker} size="3x" />
+            </div>
             <h3>Backend & API Integration</h3>
             <p>
               Experienced in integrating RESTful and GraphQL APIs with mobile
@@ -93,7 +101,9 @@ function Expertise() {
           </div>
 
           <div className="skill">
-            <FontAwesomeIcon icon={faPython} size="3x" />
+            <div className="skill-icons">
+              <FontAwesomeIcon icon={faPython} size="3x" />
+            </div>
             <h3>Learning & Researching</h3>
             <p>
               I actively explore and experiment with modern technologies across

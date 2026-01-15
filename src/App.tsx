@@ -36,7 +36,7 @@ function App() {
       <Expertise />
       <Timeline />
       <Project />
-      <Contact />
+      <Contact mode={mode}/>
 
       <Footer />
     </div>
