@@ -12,6 +12,7 @@ interface ContactProps {
 }
 
 function Contact({ mode }: ContactProps) {
+  void mode;
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
@@ -24,48 +25,45 @@ function Contact({ mode }: ContactProps) {
 
   const form = useRef<HTMLFormElement>(null);
 
-  const isDarkMode = mode === "dark";
-
   // Dynamic styles for TextField based on theme
   const textFieldStyles = {
     "& .MuiOutlinedInput-root": {
-      backgroundColor: isDarkMode ? "#fff" : "#fff",
+      backgroundColor: "#ffffff",
       "& fieldset": {
-        borderColor: isDarkMode ? "#5000ca" : "#5000ca",
+        borderColor: "#cbd5e1", // default border (neutral gray)
+        borderWidth: "1px",
       },
+
       "&:hover fieldset": {
-        borderColor: isDarkMode ? "#7c3aed" : "#7c3aed",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "#5000ca",
+        borderColor: "#6366f1", // hover border
       },
     },
     "& .MuiInputBase-input": {
-      color: "#0d1116",
+      color: "#000000",
     },
-    // Floating label when focused or has value (shrunk state)
+    // Default label (inside input)
+    "& .MuiInputLabel-root": {
+      color: "#475569",
+      transition: "all 0.2s ease",
+    },
+    // Focused label
+    "& .MuiInputLabel-root.Mui-focused": {
+      color: "#000000",
+    },
+    // Shrunk (floating) label
     "& .MuiInputLabel-shrink": {
-      color: isDarkMode ? "#fff" : "#000",
+      color: "#000000",
       fontWeight: 600,
-      backgroundColor: isDarkMode ? "#0d1116" : "#fff",
+      backgroundColor: "#ffffff",
       padding: "0 8px",
       borderRadius: "4px",
-    },
-    // Label in default state (inside input)
-    "& .MuiInputLabel-root": {
-      color: "rgba(0, 0, 0, 0.6)",
-    },
-    // Focused label color
-    "& .MuiInputLabel-root.Mui-focused": {
-      color: isDarkMode ? "#fff" : "#000",
     },
     // Error state
     "& .MuiInputLabel-root.Mui-error": {
       color: "#d32f2f",
     },
-    // Helper text
     "& .MuiFormHelperText-root": {
-      color: isDarkMode ? "#ccc" : "#666",
+      color: "#64748b",
     },
     "& .MuiFormHelperText-root.Mui-error": {
       color: "#d32f2f",
