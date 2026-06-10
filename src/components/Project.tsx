@@ -3,6 +3,46 @@ import "../assets/styles/Project.scss";
 
 const projects = [
   {
+    title: "PayPal BNPL",
+    category: "E-Commerce/FinTech",
+    description: [
+      "Austria launch: Bringing buy-now-pay-later capabilities to the Austrian market.",
+      "Built with Next.js 15 and TypeScript for optimal performance and type safety.",
+      "270+ functional tests ensuring reliability and business continuity.",
+      "Significant business impact on payment processing and customer conversion.",
+    ],
+    image: "paypal_bnpl.jpg",
+    is_web_link_working: false,
+    web_link: "",
+  },
+  {
+    title: "Shell Mobile Platform",
+    category: "Mobile/Platform",
+    description: [
+      "React Native upgrade: Migrated from 0.69 → 0.81 with zero downtime.",
+      "Achieved 99.5% availability across all platform services.",
+      "Significant incident reduction through improved monitoring and testing.",
+      "Comprehensive monitoring and alerting infrastructure.",
+    ],
+    image: "shell_mobile.jpg",
+    is_web_link_working: false,
+    web_link: "",
+  },
+  {
+    title: "React Native Architecture Case Study",
+    category: "Technical/Architecture",
+    description: [
+      "Scalable folder structure: Organized for rapid feature development and maintainability.",
+      "State management: Redux integration with middleware optimization.",
+      "Offline strategy: Robust data synchronization and conflict resolution.",
+      "Deep linking: Complete navigation architecture across app experiences.",
+      "Performance: Achieved 60 FPS and reduced bundle size by 40%.",
+    ],
+    image: "rn_architecture.jpg",
+    is_web_link_working: false,
+    web_link: "",
+  },
+  {
     title: "ESSTA",
     category: "Music And Audio",
     description: [
