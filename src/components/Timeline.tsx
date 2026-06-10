@@ -12,14 +12,74 @@ function Timeline() {
         <h1>Career History</h1>
         <VerticalTimeline>
           {/* Tata Consultancy Services */}
-          <VerticalTimelineElement className="vertical-timeline-element--work" contentStyle={{ background: "white", color: "#272822" }} contentArrowStyle={{ borderRight: "7px solid white" }} date="Nov 2024 - Present" iconStyle={{ background: "#5000ca", color: "white" }} icon={<FontAwesomeIcon icon={faBriefcase} />}>
-            <h3 className="vertical-timeline-element-title">System Engineer</h3>
-            <h4 className="vertical-timeline-element-subtitle">Tata Consultancy Services, Bengaluru</h4>
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            contentStyle={{ background: "white", color: "#272822" }}
+            contentArrowStyle={{ borderRight: "7px solid white" }}
+            date="Aug 2025 - Apr 2026"
+            iconStyle={{ background: "#5000ca", color: "white" }}
+            icon={<FontAwesomeIcon icon={faBriefcase} />}
+          >
+            <h3 className="vertical-timeline-element-title">Frontend Engineer (PayPal)</h3>
+            <h4 className="vertical-timeline-element-subtitle">
+              Tata Consultancy Services, Bengaluru
+            </h4>
+
             <ul>
-              <li>Managed end-to-end incident lifecycle (logging, categorization, prioritization, resolution, closure)</li>
-              <li>Assessed, planned, and executed standard & emergency changes following ITIL processes</li>
-              <li>Identified recurring incidents and initiated problem records to eliminate root causes</li>
-              <li>Performed Azure-based debugging & monitoring for cloud-hosted apps & infrastructure</li>
+              <li>
+                Supported Austria market expansion by validating and adapting checkout
+                flows for regional requirements.
+              </li>
+              <li>
+                Authored and maintained 270+ functional tests for pre-checkout payment
+                journeys, improving release reliability.
+              </li>
+              <li>
+                Built frontend features for PayPal Store Sync using Next.js 15 (App Router)
+                and TypeScript, enabling merchants to integrate product catalogs and commerce
+                APIs with PayPal's agentic commerce platform.
+              </li>
+              <li>
+                Improved page load performance by 5-10% through lazy loading, API batching,
+                and client-side optimization.
+              </li>
+            </ul>
+          </VerticalTimelineElement>
+
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            contentStyle={{ background: "white", color: "#272822" }}
+            contentArrowStyle={{ borderRight: "7px solid white" }}
+            date="Nov 2024 - Jul 2025"
+            iconStyle={{ background: "#5000ca", color: "white" }}
+            icon={<FontAwesomeIcon icon={faBriefcase} />}
+          >
+            <h3 className="vertical-timeline-element-title">Frontend Engineer (Shell)</h3>
+            <h4 className="vertical-timeline-element-subtitle">
+              Tata Consultancy Services, Bengaluru
+            </h4>
+
+            <ul>
+              <li>
+                Upgraded React Native applications from v0.69 to v0.81, resolving
+                dependency conflicts and improving maintainability.
+              </li>
+              <li>
+                Leveraged Azure Application Insights, Flipper, Logcat, and performance
+                profiling tools to diagnose and resolve complex production issues.
+              </li>
+              <li>
+                Resolved 15-25 production incidents per week across React and React Native
+                applications while maintaining 95%+ SLA compliance.
+              </li>
+              <li>
+                Improved platform availability to 99.5%+ through proactive monitoring,
+                incident response, and root-cause analysis.
+              </li>
+              <li>
+                Eliminated a recurring issue responsible for nearly 50% of production
+                incidents by implementing a UI-driven automation solution.
+              </li>
             </ul>
           </VerticalTimelineElement>
 
