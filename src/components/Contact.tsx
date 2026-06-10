@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import TextField from "@mui/material/TextField";
-import emailjs from "@emailjs/browser";
+import emailjs from "../lib/emailjs";
 
 import "../assets/styles/Contact.scss";
 
@@ -70,7 +70,7 @@ function Contact({ mode }: ContactProps) {
     },
   };
 
-  const sendEmail = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const sendEmail = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     const hasNameError = !name.trim();
@@ -95,29 +95,26 @@ function Contact({ mode }: ContactProps) {
       time: new Date().toLocaleString(),
     };
 
-    emailjs
-      .send(
-        "default_service",
-        "template_ilf91wd",
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         templateParams,
-        "eKiXqijJAzyOcl806",
-      )
-      .then(
-        () => {
-          alert("✅ Message sent successfully!");
-          setName("");
-          setEmail("");
-          setMessage("");
-          setTitle("");
-          setNameError(false);
-          setEmailError(false);
-          setMessageError(false);
-          setTitleError(false);
-        },
-        (error) => {
-          alert("❌ Failed to send message: " + JSON.stringify(error));
-        },
+        {
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+        }
       );
+
+      alert("✅ Message sent successfully!");
+
+      setName("");
+      setEmail("");
+      setMessage("");
+      setTitle("");
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      alert("❌ Failed to send message");
+    }
   };
 
   return (
@@ -197,14 +194,6 @@ function Contact({ mode }: ContactProps) {
                 variant="contained"
                 endIcon={<SendIcon />}
                 onClick={sendEmail}
-                // sx={{
-                //   backgroundColor: isDarkMode ? "#fff" : "#0d1116",
-                //   color: isDarkMode ? "#0d1116" : "#fff",
-                //   "&:hover": {
-                //     backgroundColor: "#5000ca",
-                //     color: "#fff",
-                //   },
-                // }}
               >
                 Send
               </Button>
